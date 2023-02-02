@@ -32,7 +32,7 @@ router.post('/', (req, res) => {
 
 router.put('/:id', (req, res) => {
   // update a category by its `id` value
-  Book.update(
+  Category.update(
     {
       // All the fields you can update and the data attached to the request body.
       category_id: req.body.id,
