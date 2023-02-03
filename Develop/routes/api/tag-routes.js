@@ -22,8 +22,8 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   // create a new tag
   Tag.create(req.body)
-    .then((newCategory) => {
-      res.json(newCategory);
+    .then((newTag) => {
+      res.json(newTag);
     })
     .catch((err) => {
       res.json(err);
@@ -41,13 +41,13 @@ router.put('/:id', (req, res) => {
     {
       // Gets the category based on the id given in the request parameters
       where: {
-        tag_id: req.body.id,
+        tag_id: req.params.id,
       },
     }
   )
-    .then((updatedCategory) => {
+    .then((updatedTag) => {
       // Sends the updated book as a json response
-      res.json(updatedCategory);
+      res.json(updatedTag);
     })
     .catch((err) => res.json(err));
 });
@@ -56,11 +56,11 @@ router.delete('/:id', (req, res) => {
   // delete on tag by its `id` value
   Tag.destroy({
     where: {
-      category_id: req.body.id,
+      tag_id: req.params.id,
     },
   })
-    .then((deletedCategory) => {
-      res.json(deletedCategory);
+    .then((deletedTag) => {
+      res.json(deletedTag);
     })
     .catch((err) => res.json(err));
 });

@@ -99,11 +99,11 @@ router.delete('/:id', (req, res) => {
   // delete one product by its `id` value
   Product.destroy({
     where: {
-      category_id: req.body.id,
+      product_id: req.params.id,
     },
   })
-    .then((deletedCategory) => {
-      res.json(deletedCategory);
+    .then((deletedProduct) => {
+      res.json(deletedProduct);
     })
     .catch((err) => res.json(err));
 });

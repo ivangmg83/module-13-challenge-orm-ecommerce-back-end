@@ -41,7 +41,7 @@ router.put('/:id', (req, res) => {
     {
       // Gets the category based on the id given in the request parameters
       where: {
-        category_id: req.body.id,
+        category_id: req.params.id,
       },
     }
   )
@@ -56,7 +56,7 @@ router.delete('/:id', (req, res) => {
   // delete a category by its `id` value
   Category.destroy({
     where: {
-      category_id: req.body.id,
+      category_id: req.params.id,
     },
   })
     .then((deletedCategory) => {
